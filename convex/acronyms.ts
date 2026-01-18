@@ -40,6 +40,22 @@ export const getAllAcronyms = query({
   },
 });
 
+export const listCategories = query({
+  args: {},
+  handler: async (ctx) => {
+    const acronyms = await ctx.db.query("acronyms").collect();
+    const categoryCounts = acronyms.reduce((acc, acronym) => {
+      const cat = acronym.category || "Uncategorized";
+      acc[cat] = (acc[cat] || 0) + 1;
+      return acc;
+    }, {} as Record<string, number>);
+
+    return Object.entries(categoryCounts)
+      .map(([category, count]) => ({ category, count }))
+      .sort((a, b) => b.count - a.count);
+  },
+});
+
 export const seedAcronyms = mutation({
   args: {},
   handler: async (ctx) => {

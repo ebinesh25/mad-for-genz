@@ -56,6 +56,31 @@ export const listCategories = query({
   },
 });
 
+export const listTags = query({
+  args: {},
+  handler: async (ctx) => {
+    const MIN_TAG_USAGE = 2; // Only show tags used by 2+ acronyms to reduce noise
+    const MAX_TAGS_RETURNED = 15; // Limit to prevent overwhelming UI
+
+    const acronyms = await ctx.db.query("acronyms").collect();
+    const tagCounts = acronyms.reduce((acc, acronym) => {
+      for (const tag of acronym.tags || []) {
+        const normalizedTag = tag.toLowerCase().trim();
+        if (normalizedTag) {
+          acc[normalizedTag] = (acc[normalizedTag] || 0) + 1;
+        }
+      }
+      return acc;
+    }, {} as Record<string, number>);
+
+    return Object.entries(tagCounts)
+      .map(([tag, count]) => ({ tag, count }))
+      .filter(t => t.count >= MIN_TAG_USAGE)
+      .sort((a, b) => b.count - a.count)
+      .slice(0, MAX_TAGS_RETURNED);
+  },
+});
+
 export const seedAcronyms = mutation({
   args: {},
   handler: async (ctx) => {

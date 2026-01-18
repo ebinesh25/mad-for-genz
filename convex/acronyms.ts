@@ -37,23 +37,28 @@ export const searchWithFilter = query({
     tags: v.optional(v.array(v.string())),
   },
   handler: async (ctx, args) => {
+    // Handle undefined/null values from optional args
+    const category = args.category ?? undefined;
+    const tags = args.tags ?? undefined;
+    const searchTerm = args.searchTerm ?? undefined;
+
     let results = await ctx.db.query("acronyms").collect();
 
     // Apply category filter if provided
-    if (args.category) {
-      results = results.filter((acronym) => acronym.category === args.category);
+    if (category) {
+      results = results.filter((acronym) => acronym.category === category);
     }
 
     // Apply tag filter if provided
-    if (args.tags && args.tags.length > 0) {
+    if (tags && tags.length > 0) {
       results = results.filter((acronym) =>
-        args.tags!.some((tag) => acronym.tags?.includes(tag))
+        tags.some((tag) => acronym.tags?.includes(tag))
       );
     }
 
     // Apply search term if provided
-    if (args.searchTerm && args.searchTerm.trim()) {
-      const term = args.searchTerm.toLowerCase();
+    if (searchTerm && searchTerm.trim()) {
+      const term = searchTerm.toLowerCase();
       results = results.filter(
         (a) =>
           a.acronym?.toLowerCase().includes(term) ||

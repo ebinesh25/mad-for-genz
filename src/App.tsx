@@ -1,14 +1,30 @@
 import { useState } from "react";
 import { useQuery } from "convex/react";
 import { api } from "../convex/_generated/api";
+import CategoryFilter from "./components/CategoryFilter";
+import TagFilter from "./components/TagFilter";
+import AcronymCard from "./components/AcronymCard";
 
 export default function App() {
   const [searchTerm, setSearchTerm] = useState("");
-  
-  const searchResults = useQuery(api.acronyms.searchAcronyms, { searchTerm });
-  const allAcronyms = useQuery(api.acronyms.getAllAcronyms);
-  
-  const displayAcronyms = searchTerm.trim() ? searchResults : allAcronyms;
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
+  const searchResults = useQuery(api.acronyms.searchWithFilter, {
+    searchTerm,
+    category: selectedCategory,
+    tags: selectedTags,
+  });
+
+  const handleTagToggle = (tag: string) => {
+    setSelectedTags((prev) =>
+      prev.includes(tag)
+        ? prev.filter((t) => t !== tag)
+        : [...prev, tag]
+    );
+  };
+
+  const displayAcronyms = searchResults || [];
 
   return (
     <div className="min-h-screen bg-white">
@@ -22,7 +38,7 @@ export default function App() {
 
       {/* Search */}
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="mb-8">
+        <div className="mb-6">
           <input
             type="text"
             placeholder="Search acronyms..."
@@ -32,42 +48,44 @@ export default function App() {
           />
         </div>
 
+        {/* Category Filter */}
+        <CategoryFilter
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+        />
+
+        {/* Tag Filter */}
+        <TagFilter
+          selectedTags={selectedTags}
+          onTagToggle={handleTagToggle}
+        />
+
+        {/* Active Filters Display */}
+        {(selectedCategory || selectedTags.length > 0) && (
+          <div className="mb-4 text-sm text-gray-600">
+            Active filters: {selectedCategory && `Category: ${selectedCategory}`}
+            {selectedCategory && selectedTags.length > 0 && " | "}
+            {selectedTags.length > 0 && `Tags: ${selectedTags.join(", ")}`}
+          </div>
+        )}
+
         {/* Results Count */}
         <div className="mb-6">
           <p className="text-gray-600">
-            {displayAcronyms?.length ? `${displayAcronyms.length} acronyms found` : 'Loading...'}
+            {displayAcronyms.length} acronyms found
           </p>
         </div>
 
         {/* Acronym List */}
         <div className="space-y-4">
-          {displayAcronyms?.map((acronym) => (
-            <div key={acronym._id} className="border border-gray-300 rounded-lg p-4">
-              <div className="flex items-start justify-between">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">
-                    {acronym.acronym}
-                  </h3>
-                  <p className="text-gray-700 mb-2">
-                    {acronym.definition}
-                  </p>
-                  <p className="text-gray-600 text-sm">
-                    {acronym.explanation}
-                  </p>
-                </div>
-                <div className="ml-4">
-                  <span className="inline-block px-3 py-1 bg-blue-500 text-white text-sm rounded">
-                    {acronym.category}
-                  </span>
-                </div>
-              </div>
-            </div>
+          {displayAcronyms.map((acronym) => (
+            <AcronymCard key={acronym._id} {...acronym} />
           ))}
         </div>
 
-        {displayAcronyms?.length === 0 && searchTerm && (
+        {displayAcronyms.length === 0 && (searchTerm || selectedCategory || selectedTags.length > 0) && (
           <div className="text-center py-12">
-            <p className="text-gray-600">No acronyms found for "{searchTerm}"</p>
+            <p className="text-gray-600">No acronyms found matching your filters</p>
           </div>
         )}
       </div>

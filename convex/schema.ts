@@ -8,8 +8,8 @@ const applicationTables = {
     definition: v.string(),
     explanation: v.string(),
     category: v.string(),
-    tags: v.array(v.string()),
-    examples: v.array(v.string()),
+    tags: v.optional(v.array(v.string())),
+    examples: v.optional(v.array(v.string())),
     popularity: v.number(),
   })
     .index("by_acronym", ["acronym"])

@@ -12,6 +12,7 @@ import type * as acronyms from "../acronyms.js";
 import type * as auth from "../auth.js";
 import type * as http from "../http.js";
 import type * as router from "../router.js";
+import type * as seedContentEnhancement from "../seedContentEnhancement.js";
 
 import type {
   ApiFromModules,
@@ -24,6 +25,7 @@ declare const fullApi: ApiFromModules<{
   auth: typeof auth;
   http: typeof http;
   router: typeof router;
+  seedContentEnhancement: typeof seedContentEnhancement;
 }>;
 
 /**

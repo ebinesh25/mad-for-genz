@@ -1,6 +1,6 @@
 // src/components/CategoryFilter.tsx
 import { useQuery } from "convex/react";
-import { api } from "../convex/_generated/api";
+import { api } from "../../convex/_generated/api";
 import { getCategoryColor, getCategoryLabel } from "../lib/categories";
 
 interface CategoryFilterProps {

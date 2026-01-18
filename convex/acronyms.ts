@@ -37,21 +37,17 @@ export const searchWithFilter = query({
     tags: v.optional(v.array(v.string())),
   },
   handler: async (ctx, args) => {
-    let query = ctx.db.query("acronyms");
+    let results = await ctx.db.query("acronyms").collect();
 
     // Apply category filter if provided
     if (args.category) {
-      query = query.withIndex("by_category", (q) =>
-        q.eq("category", args.category)
-      );
+      results = results.filter((acronym) => acronym.category === args.category);
     }
-
-    let results = await query.collect();
 
     // Apply tag filter if provided
     if (args.tags && args.tags.length > 0) {
       results = results.filter((acronym) =>
-        args.tags.some((tag) => acronym.tags?.includes(tag))
+        args.tags!.some((tag) => acronym.tags?.includes(tag))
       );
     }
 
@@ -390,7 +386,11 @@ export const seedAcronyms = mutation({
 
     // Insert all acronyms
     for (const acronym of acronyms) {
-      await ctx.db.insert("acronyms", acronym);
+      await ctx.db.insert("acronyms", {
+        ...acronym,
+        tags: [],
+        examples: [],
+      });
     }
 
     return "Successfully seeded 200+ acronyms";

@@ -1,6 +1,6 @@
 // src/components/TagFilter.tsx
 import { useQuery } from "convex/react";
-import { api } from "../convex/_generated/api";
+import { api } from "../../convex/_generated/api";
 
 interface TagFilterProps {
   selectedTags: string[];

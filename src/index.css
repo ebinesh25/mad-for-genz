@@ -11,6 +11,6 @@ body {
 /* Focus styles */
 input:focus,
 button:focus {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #cbc634;
   outline-offset: 2px;
 }

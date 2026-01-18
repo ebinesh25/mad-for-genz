@@ -26,8 +26,8 @@ export default function TagFilter({
             aria-pressed={isSelected}
             className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
               isSelected
-                ? "bg-indigo-500 text-white"
-                : "bg-indigo-100 text-indigo-700 hover:bg-indigo-200"
+                ? "bg-vanilla-custard-500 text-white"
+                : "bg-vanilla-custard-100 text-vanilla-custard-700 hover:bg-vanilla-custard-200"
             }`}
           >
             #{tag} ({count})
@@ -38,7 +38,7 @@ export default function TagFilter({
         <button
           onClick={() => selectedTags.forEach(t => onTagToggle(t))}
           aria-label={`Clear all ${selectedTags.length} selected tags`}
-          className="px-3 py-1 rounded-full text-sm font-medium text-red-600 hover:bg-red-100 transition-colors"
+          className="px-3 py-1 rounded-full text-sm font-medium text-charcoal-brown-600 hover:bg-charcoal-brown-100 transition-colors"
         >
           Clear tags
         </button>

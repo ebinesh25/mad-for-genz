@@ -12,7 +12,7 @@ export default function App() {
 
   const searchResults = useQuery(api.acronyms.searchWithFilter, {
     searchTerm,
-    category: selectedCategory,
+    category: selectedCategory ?? '',
     tags: selectedTags,
   });
 
@@ -27,12 +27,13 @@ export default function App() {
   const displayAcronyms = searchResults || [];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-beige-50">
       {/* Header */}
-      <header className="bg-gray-900 text-white py-8">
+      <header className="bg-charcoal-brown-900 text-white py-8">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-2">Acronym Dictionary</h1>
-          <p className="text-gray-300">Search through 1000+ acronyms and abbreviations</p>
+          <h1 className="text-4xl font-bold mb-2">MAD for GENZs</h1>
+          
+          <p className="text-silver-300">Search through 1000+ acronyms and abbreviations</p>
         </div>
       </header>
 
@@ -44,7 +45,7 @@ export default function App() {
             placeholder="Search acronyms..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-lg focus:border-blue-500 focus:outline-none"
+            className="w-full px-4 py-3 border-2 border-silver-300 rounded-lg text-lg focus:border-vanilla-custard-500 focus:outline-none"
           />
         </div>
 
@@ -62,7 +63,7 @@ export default function App() {
 
         {/* Active Filters Display */}
         {(selectedCategory || selectedTags.length > 0) && (
-          <div className="mb-4 text-sm text-gray-600">
+          <div className="mb-4 text-sm text-silver-600">
             Active filters: {selectedCategory && `Category: ${selectedCategory}`}
             {selectedCategory && selectedTags.length > 0 && " | "}
             {selectedTags.length > 0 && `Tags: ${selectedTags.join(", ")}`}
@@ -71,7 +72,7 @@ export default function App() {
 
         {/* Results Count */}
         <div className="mb-6">
-          <p className="text-gray-600">
+          <p className="text-silver-600">
             {displayAcronyms.length} acronyms found
           </p>
         </div>
@@ -85,7 +86,7 @@ export default function App() {
 
         {displayAcronyms.length === 0 && (searchTerm || selectedCategory || selectedTags.length > 0) && (
           <div className="text-center py-12">
-            <p className="text-gray-600">No acronyms found matching your filters</p>
+            <p className="text-silver-600">No acronyms found matching your filters</p>
           </div>
         )}
       </div>

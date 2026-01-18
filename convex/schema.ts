@@ -8,9 +8,12 @@ const applicationTables = {
     definition: v.string(),
     explanation: v.string(),
     category: v.string(),
+    tags: v.array(v.string()),
+    examples: v.array(v.string()),
     popularity: v.number(),
   })
     .index("by_acronym", ["acronym"])
+    .index("by_category", ["category"])
     .searchIndex("search_acronyms", {
       searchField: "acronym",
       filterFields: ["category"],

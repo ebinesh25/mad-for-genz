@@ -30,6 +30,45 @@ export const searchAcronyms = query({
   },
 });
 
+export const searchWithFilter = query({
+  args: {
+    searchTerm: v.optional(v.string()),
+    category: v.optional(v.string()),
+    tags: v.optional(v.array(v.string())),
+  },
+  handler: async (ctx, args) => {
+    let query = ctx.db.query("acronyms");
+
+    // Apply category filter if provided
+    if (args.category) {
+      query = query.withIndex("by_category", (q) =>
+        q.eq("category", args.category)
+      );
+    }
+
+    let results = await query.collect();
+
+    // Apply tag filter if provided
+    if (args.tags && args.tags.length > 0) {
+      results = results.filter((acronym) =>
+        args.tags.some((tag) => acronym.tags?.includes(tag))
+      );
+    }
+
+    // Apply search term if provided
+    if (args.searchTerm && args.searchTerm.trim()) {
+      const term = args.searchTerm.toLowerCase();
+      results = results.filter(
+        (a) =>
+          a.acronym?.toLowerCase().includes(term) ||
+          a.definition?.toLowerCase().includes(term)
+      );
+    }
+
+    return results;
+  },
+});
+
 export const getAllAcronyms = query({
   args: {},
   handler: async (ctx) => {

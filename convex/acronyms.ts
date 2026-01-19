@@ -390,7 +390,137 @@ export const seedAcronyms = mutation({
       { acronym: "ASL", definition: "Age Sex Location", explanation: "Old-school internet chat question.", category: "General", popularity: 60 },
       { acronym: "DIY", definition: "Do It Yourself", explanation: "Creating or repairing things independently.", category: "General", popularity: 85 },
       { acronym: "FYI", definition: "For Your Information", explanation: "Used to share helpful information.", category: "General", popularity: 90 },
-		];
+		
+  // Texting / SMS (common)
+  { acronym: "GM", definition: "Good Morning", explanation: "A friendly greeting at the start of the day.", category: "Internet", popularity: 85 },
+  { acronym: "GN", definition: "Good Night", explanation: "Used to say goodbye before going to sleep.", category: "Internet", popularity: 80 },
+  { acronym: "G2G", definition: "Got To Go", explanation: "Indicates leaving a conversation.", category: "Internet", popularity: 82 },
+  { acronym: "LMK", definition: "Let Me Know", explanation: "Asking someone to inform you.", category: "Internet", popularity: 83 },
+  { acronym: "NVM", definition: "Never Mind", explanation: "Used to retract or dismiss a previous message.", category: "Internet", popularity: 82 },
+  { acronym: "WBU", definition: "What About You?", explanation: "Used to ask someone their status or opinion in return.", category: "Internet", popularity: 78 },
+  { acronym: "BRT", definition: "Be Right There", explanation: "Indicates arriving soon.", category: "Internet", popularity: 76 },
+  { acronym: "DAE", definition: "Does Anyone Else?", explanation: "Used when asking if others relate to something.", category: "Internet", popularity: 70 },
+  { acronym: "B4", definition: "Before", explanation: "Text shorthand for the word “before.”", category: "Internet", popularity: 75 },
+  { acronym: "FK", definition: "F***", explanation: "Strong emphasis or expletive when texting.", category: "Internet", popularity: 75 },
+  { acronym: "THX", definition: "Thanks", explanation: "A casual way to show gratitude.", category: "Internet", popularity: 80 },
+
+  // More Internet Slang
+  { acronym: "BC", definition: "Because", explanation: "Short form for reason/explanation in text.", category: "Internet", popularity: 80 },
+  { acronym: "FWIW", definition: "For What It's Worth", explanation: "Used to add a possibly helpful opinion.", category: "Internet", popularity: 78 },
+  { acronym: "ICYMI", definition: "In Case You Missed It", explanation: "Used when highlighting previous content.", category: "Social Media", popularity: 81 },
+  { acronym: "TBF", definition: "To Be Frank", explanation: "Used to preface a candid opinion.", category: "Internet", popularity: 74 },
+  { acronym: "STFU", definition: "Shut The F*** Up", explanation: "Strong way to tell someone to be quiet.", category: "Internet", popularity: 72 },
+  { acronym: "SRSLY", definition: "Seriously", explanation: "Expresses disbelief or emphasis.", category: "Internet", popularity: 74 },
+  { acronym: "SYS", definition: "See You Soon", explanation: "Casual goodbye.", category: "Internet", popularity: 70 },
+  { acronym: "TDTM", definition: "Talk Dirty To Me", explanation: "Suggestive texting phrase.", category: "Internet", popularity: 60 },
+  { acronym: "WTFBRO", definition: "What The F*** Bro", explanation: "Aggressive expression of surprise or disbelief.", category: "Internet", popularity: 65 },
+
+  // Social Media / Pop Culture Slang
+  { acronym: "GRWM", definition: "Get Ready With Me", explanation: "A type of social media video format.", category: "Social Media", popularity: 78 },
+  { acronym: "BRB", definition: "Be Right Back", explanation: "Temporary absence from chat.", category: "Internet", popularity: 87 },
+  { acronym: "ATE", definition: "Did Extremely Well", explanation: "Used to praise something very impressive.", category: "Gen Z", popularity: 88 },
+  { acronym: "MID", definition: "Mediocre", explanation: "Used to describe something unimpressive.", category: "Gen Z", popularity: 85 },
+  { acronym: "GYAT", definition: "Gyatt", explanation: "Gen Alpha slang popular on TikTok for describing body or strong reaction.", category: "Gen Z", popularity: 75 },
+  { acronym: "DELULU", definition: "Delusional (playful)", explanation: "Used humorously to describe someone out of touch with reality.", category: "Gen Z", popularity: 78 },
+  { acronym: "GHOST", definition: "Disappear without reply", explanation: "Not responding to messages without warning.", category: "Gen Z", popularity: 80 },
+  { acronym: "BIG MOOD", definition: "Strong feeling or vibe", explanation: "Used when something exactly matches your feelings.", category: "Gen Z", popularity: 82 },
+  { acronym: "CORECORE", definition: "Aesthetic vibe trend", explanation: "Used to describe a trend describing intense aesthetics or mood.", category: "Gen Z", popularity: 70 },
+
+  // More Internet / SMS Abbreviations
+  { acronym: "ABT", definition: "About", explanation: "Common shorthand for ‘about.’", category: "Internet", popularity: 76 },
+  { acronym: "FAV", definition: "Favorite", explanation: "Meaning something you like most.", category: "Internet", popularity: 78 },
+  { acronym: "FTFY", definition: "Fixed That For You", explanation: "Used when correcting a previous text or post.", category: "Internet", popularity: 75 },
+  { acronym: "YMMV", definition: "Your Mileage May Vary", explanation: "Indicating experiences may differ.", category: "Internet", popularity: 74 },
+  { acronym: "WFM", definition: "Works For Me", explanation: "Agreement with a suggestion or plan.", category: "Internet", popularity: 72 },
+  { acronym: "WRT", definition: "With Regard To", explanation: "Used when introducing a topic.", category: "Internet", popularity: 70 },
+
+  // Repeated from sources but semantically distinct forms
+  { acronym: "AFAIC", definition: "As Far As I'm Concerned", explanation: "Prefacing a personal stance or judgment.", category: "Internet", popularity: 70 },
+  { acronym: "AKA", definition: "Also Known As", explanation: "Used to introduce an alternate name.", category: "Internet", popularity: 80 },
+  { acronym: "BFD", definition: "Big Freaking Deal", explanation: "Sarcastic emphasis on importance.", category: "Internet", popularity: 69 },
+  { acronym: "DIY", definition: "Do It Yourself", explanation: "Do something yourself rather than hiring out.", category: "General", popularity: 85 },  
+
+  { acronym: "OMW", definition: "On My Way", explanation: "Indicates you’re heading somewhere.", category: "Internet", popularity: 85 },
+{ acronym: "WDYT", definition: "What Do You Think?", explanation: "Asking someone for their opinion.", category: "Internet", popularity: 78 },
+{ acronym: "HMU", definition: "Hit Me Up", explanation: "Invite someone to contact you.", category: "Internet", popularity: 85 },
+{ acronym: "FB", definition: "Facebook", explanation: "Social network platform.", category: "Social Media", popularity: 90 },
+{ acronym: "IG", definition: "Instagram", explanation: "Photo and short video sharing app.", category: "Social Media", popularity: 92 },
+{ acronym: "YT", definition: "YouTube", explanation: "Video sharing platform.", category: "Social Media", popularity: 88 },
+{ acronym: "TT", definition: "TikTok", explanation: "Short video platform.", category: "Social Media", popularity: 95 },
+{ acronym: "SC", definition: "Snapchat", explanation: "Image messaging platform.", category: "Social Media", popularity: 88 },
+{ acronym: "QOTD", definition: "Quote Of The Day", explanation: "Daily quote format on social media.", category: "Social Media", popularity: 68 },
+{ acronym: "OOTD", definition: "Outfit Of The Day", explanation: "Shared outfit post.", category: "Social Media", popularity: 75 },
+{ acronym: "TBT", definition: "Throwback Thursday", explanation: "Posts from the past shared on Thursdays.", category: "Social Media", popularity: 78 },
+{ acronym: "MCM", definition: "Man Crush Monday", explanation: "Weekly social media tag for male crushes.", category: "Social Media", popularity: 72 },
+{ acronym: "WCW", definition: "Woman Crush Wednesday", explanation: "Weekly social tag for female crush.", category: "Social Media", popularity: 72 },
+{ acronym: "LYSM", definition: "Love You So Much", explanation: "Expressing deep affection.", category: "Internet", popularity: 85 },
+{ acronym: "XOXO", definition: "Hugs And Kisses", explanation: "Friendly expression of affection.", category: "Internet", popularity: 80 },
+{ acronym: "BAE", definition: "Before Anyone Else", explanation: "Term for someone very important to you.", category: "Internet", popularity: 85 },
+
+{ acronym: "BBL", definition: "Be Back Later", explanation: "Leaving chat and coming back later.", category: "Internet", popularity: 75 },
+{ acronym: "BBS", definition: "Be Back Soon", explanation: "Short absence message.", category: "Internet", popularity: 78 },
+{ acronym: "GF", definition: "Girlfriend", explanation: "Romantic partner term.", category: "Social", popularity: 88 },
+{ acronym: "BF", definition: "Boyfriend", explanation: "Romantic partner term.", category: "Social", popularity: 88 },
+{ acronym: "PPL", definition: "People", explanation: "Short form for people in text.", category: "Internet", popularity: 78 },
+{ acronym: "PIC", definition: "Picture", explanation: "Refers to an image.", category: "Internet", popularity: 75 },
+{ acronym: "PLZ", definition: "Please", explanation: "Polite request in abbreviated form.", category: "Internet", popularity: 80 },
+{ acronym: "DL", definition: "Down Low", explanation: "Something kept secret.", category: "Internet", popularity: 70 },
+{ acronym: "DND", definition: "Do Not Disturb", explanation: "Mode to avoid interruptions.", category: "Internet", popularity: 75 },
+{ acronym: "TYT", definition: "Take Your Time", explanation: "Do not rush.", category: "Internet", popularity: 70 },
+{ acronym: "TYVM", definition: "Thank You Very Much", explanation: "Strong gratitude expression.", category: "Internet", popularity: 78 },
+{ acronym: "W/O", definition: "Without", explanation: "Short form for without.", category: "Internet", popularity: 70 },
+{ acronym: "SMH", definition: "Shaking My Head", explanation: "Disbelief or disappointment.", category: "Internet", popularity: 88 },
+{ acronym: "ICYMI", definition: "In Case You Missed It", explanation: "Re-highlighting something.", category: "Social Media", popularity: 80 },
+
+{ acronym: "GLHF", definition: "Good Luck Have Fun", explanation: "Pre-game well-wishing phrase.", category: "Gaming", popularity: 80 },
+{ acronym: "PWN", definition: "Owned", explanation: "To defeat someone decisively.", category: "Gaming", popularity: 80 },
+{ acronym: "GJ", definition: "Good Job", explanation: "Praise for success.", category: "Gaming", popularity: 78 },
+{ acronym: "GL", definition: "Good Luck", explanation: "Expression before a challenge.", category: "Gaming", popularity: 82 },
+{ acronym: "PK", definition: "Player Kill", explanation: "Game action of defeating another player.", category: "Gaming", popularity: 70 },
+{ acronym: "PVP", definition: "Player Versus Player", explanation: "Gameplay mode.", category: "Gaming", popularity: 75 },
+{ acronym: "PVE", definition: "Player Versus Environment", explanation: "Gameplay against game AI.", category: "Gaming", popularity: 70 },
+
+{ acronym: "GR8", definition: "Great", explanation: "Stylized form of great.", category: "Internet", popularity: 75 },
+{ acronym: "IDK", definition: "I Don't Know", explanation: "Common expression of uncertainty.", category: "Internet", popularity: 95 },
+{ acronym: "BRUH", definition: "Bro", explanation: "Casual address or disbelief exclamation.", category: "Internet", popularity: 88 },
+{ acronym: "DIFTP", definition: "Do It For The Plot", explanation: "Gen Z/pop culture phrase for doing something for fun or story.", category: "Internet", popularity: 70 },
+{ acronym: "ISTG", definition: "I Swear To God", explanation: "Emphatic phrase.", category: "Internet", popularity: 78 },
+{ acronym: "TNTL", definition: "Trying Not To Laugh", explanation: "Phrase used when something is funny.", category: "Internet", popularity: 75 },
+{ acronym: "GYAT", definition: "God Damn (excitement slang)", explanation: "Exclamation indicating excitement.", category: "Internet", popularity: 72 },
+{ acronym: "PEEPS", definition: "People/Friends", explanation: "Informal term for friends.", category: "Internet", popularity: 80 },
+
+{ acronym: "OML", definition: "Oh My Lord", explanation: "Expression of surprise or shock.", category: "Internet", popularity: 85 },
+{ acronym: "ONG", definition: "On God", explanation: "Used to express strong agreement or sincerity.", category: "Internet", popularity: 88 },
+{ acronym: "PTL", definition: "Praise The Lord", explanation: "Exclamation of thanks or relief.", category: "Internet", popularity: 70 },
+{ acronym: "WB", definition: "Welcome Back", explanation: "Used when greeting someone returning to chat.", category: "Internet", popularity: 75 },
+{ acronym: "DNC", definition: "Do Not Care", explanation: "Strong way to show indifference.", category: "Internet", popularity: 72 },
+{ acronym: "SMT", definition: "Sucking My Teeth", explanation: "Used to express irritation or disbelief.", category: "Internet", popularity: 68 },
+{ acronym: "WBK", definition: "We Been Knew", explanation: "Indicates something obvious or already known.", category: "Internet", popularity: 70 },
+{ acronym: "IMK", definition: "In My Knowledge", explanation: "Used to preface information you believe is true.", category: "Internet", popularity: 65 },
+{ acronym: "2nite", definition: "Tonight", explanation: "Short form used in texting.", category: "Internet", popularity: 74 },
+{ acronym: "B4N", definition: "Bye For Now", explanation: "Casual goodbye in texts.", category: "Internet", popularity: 73 },
+
+{ acronym: "G2CU", definition: "Good To See You", explanation: "Used when greeting someone online.", category: "Internet", popularity: 78 },
+{ acronym: "G2R", definition: "Got To Run", explanation: "Indicates leaving quickly.", category: "Internet", popularity: 77 },
+{ acronym: "PMSL", definition: "Peeing Myself Laughing", explanation: "Stronger version of laughing at something funny.", category: "Internet", popularity: 82 },
+{ acronym: "OM", definition: "Oh My!", explanation: "General exclamation astonishment.", category: "Internet", popularity: 70 },
+{ acronym: "LYS", definition: "Love Yourself", explanation: "Positive affirmation online.", category: "Internet", popularity: 72 },
+
+// Trend-Driven & Pop Slang Terms
+{ acronym: "UNC", definition: "Uncle (as slang)", explanation: "Describes someone older or with ‘uncle energy.’", category: "Gen Z", popularity: 80 }, // trending new slang :contentReference[oaicite:1]{index=1}
+{ acronym: "6-7", definition: "6-7 Meme", explanation: "Phrase used humorously from viral meme context.", category: "Gen Z", popularity: 68 }, // meme slang :contentReference[oaicite:2]{index=2}
+{ acronym: "BRAIN ROT", definition: "Brain Rot", explanation: "Slang for feeling mentally drained from too much low-quality content.", category: "Gen Z", popularity: 75 }, // trending phrase :contentReference[oaicite:3]{index=3}
+
+// Extended Texting / SMS Abbreviations
+{ acronym: "CU", definition: "See You", explanation: "Short goodbye.", category: "Internet", popularity: 70 },
+{ acronym: "CYA", definition: "See Ya", explanation: "Another casual departure phrase.", category: "Internet", popularity: 70 },
+{ acronym: "DKDC", definition: "Don’t Know And Don’t Care", explanation: "Expression of both ignorance and indifference.", category: "Internet", popularity: 65 },
+{ acronym: "EOD", definition: "End Of Day", explanation: "Used to set deadlines or timelines.", category: "Business", popularity: 75 },
+{ acronym: "YAM", definition: "Yet Another Meeting", explanation: "Workplace acronym sometimes used sarcastically.", category: "Business", popularity: 68 },
+
+
+];
+
 
     // Insert all acronyms
     for (const acronym of acronyms) {

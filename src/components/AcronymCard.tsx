@@ -4,7 +4,7 @@ import { Id } from "../convex/_generated/dataModel";
 import { getCategoryColor, getCategoryLabel } from "../lib/categories";
 
 interface AcronymCardProps {
-  _id: Id<"acronyms">;
+  _id?: Id<"acronyms">;
   acronym: string;
   definition: string;
   explanation: string;

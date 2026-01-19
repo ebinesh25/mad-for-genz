@@ -4,6 +4,7 @@ import { api } from "../convex/_generated/api";
 import CategoryFilter from "./components/CategoryFilter";
 import TagFilter from "./components/TagFilter";
 import AcronymCard from "./components/AcronymCard";
+import RetryWithUrban from "./components/RetryWithUrban";
 
 export default function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -84,11 +85,7 @@ export default function App() {
           ))}
         </div>
 
-        {displayAcronyms.length === 0 && (searchTerm || selectedCategory || selectedTags.length > 0) && (
-          <div className="text-center py-12">
-            <p className="text-silver-600">No acronyms found matching your filters</p>
-          </div>
-        )}
+        {displayAcronyms.length === 0 && (searchTerm || selectedCategory || selectedTags.length > 0) && <RetryWithUrban searchTerm={searchTerm} />}
       </div>
     </div>
   );

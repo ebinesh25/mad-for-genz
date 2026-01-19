@@ -27,21 +27,31 @@ type AcronymCardProps = {
 export default function RetryWithUrban({ searchTerm }: RetryWithUrbanProps) {
   const [data, setData] = useState<Result[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    fetch(`https://unofficialurbandictionaryapi.com/api/search?term=${searchTerm}`)
+    fetch(`https://unofficialurbandictionaryapi.com/api/search?term=${encodeURIComponent(searchTerm)}`)
       .then((res) => res.json())
       .then((json) => {
-        setData(json.data);
+        if (json && Array.isArray(json.data)) {
+          setData(json.data);
+        } else {
+          setData([]);
+        }
+        setError(null);
         setLoading(false);
       })
-      .catch((error) => {
-        console.error(error);
+      .catch((err) => {
+        console.error(err);
+        setError(err as Error);
+        setData([]);
         setLoading(false);
       });
   }, [searchTerm]);
 
   if (loading) return <p>Loading...</p>;
+
+  if (error) return <p className="text-red-600">Failed to load results. Please try again.</p>;
 
   if (!data || data.length === 0) return <p>No results found</p>;
 

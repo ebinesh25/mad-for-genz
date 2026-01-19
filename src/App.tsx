@@ -87,7 +87,7 @@ export default function App() {
           ))}
         </div>
 
-        {displayAcronyms.length === 0 && (debouncedSearchTerm || selectedCategory || selectedTags.length > 0) && <RetryWithUrban searchTerm={debouncedSearchTerm} />}
+        {displayAcronyms.length === 0 && Boolean(debouncedSearchTerm.trim()) && <RetryWithUrban searchTerm={debouncedSearchTerm} />}
       </div>
     </div>
   );

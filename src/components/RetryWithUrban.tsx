@@ -49,7 +49,7 @@ export default function RetryWithUrban({ searchTerm }: RetryWithUrbanProps) {
   const firstResult = data[0];
   console.log(firstResult)
   const acronymCard: AcronymCardProps = {
-    acronym: firstResult.word,
+    acronym: firstResult.word.toUpperCase(),
     definition: firstResult.meaning,
     explanation: firstResult.example,
     category: "general",
